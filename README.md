@@ -1,2 +1,2 @@
-# Email-classification
-Email Classifcation
+# Hospital Managment System
+Hospital Managment System
