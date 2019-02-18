@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='assets_web/images/icons/54780718e8ae7c2025273409db15db66.png') }}"/>
+	<title>Demo</title>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link href="{{ url_for('static', filename='assets_web/css/bootstrap.min.css') }}" rel="stylesheet">
+	<!-- Jquery Ui -->
+	<link href="{{ url_for('static', filename='assets_web/css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css"/>
+	<!-- Font Awesome -->
+	<link href="{{ url_for('static', filename='assets_web/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+	<!-- Flaticon -->
+	<link href="{{ url_for('static', filename='assets_web/css/flaticon.css') }}" rel="stylesheet" type="text/css"/>
+	<!-- Owl Carousel -->
+	<link href="{{ url_for('static', filename='assets_web/owl-carousel/owl.carousel.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ url_for('static', filename='assets_web/owl-carousel/owl.theme.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ url_for('static', filename='assets_web/owl-carousel/owl.transitions.css') }}" rel="stylesheet" type="text/css"/>
+	<!-- Custom Style Sheet -->
+	<link href="{{ url_for('static', filename='assets_web/css/style.css') }}" rel="stylesheet" type="text/css"/>
+	
+
+
+</head>
+<body id="page-top">
+	<!-- Loader icon -->
+	<div class="se-pre-con"></div>
+	<!-- Header section-->
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="info-outer hidden-xs">
+						<div class="info-box">
+							<div class="icon">
+								<span class="flaticon-mail"></span>
+							</div>
+							<a href="#">
+								<span class="__cf_email__" >demo@hospital.com</span>
+							</a>
+						</div>
+						<div class="info-box">
+							<div class="icon">
+								<span class="flaticon-customer-service"></span>
+							</div>
+							<a class="phone" href="#">0141XXXXXX</a>
+						</div>
+					</div>
+					<!--Header Social Icon -->
+					<div class="social">
+						<ul>
+							{% if session['name'] %}
+							<li>
+								<a href="logout" class="black">
+									<i class="fa fa-lg fa-sign-in"></i> Log out
+								</a>
+							</li>
+							{% else %}
+							<li>
+								<a href="" data-toggle="modal" data-target="#exampleModal" class="black">
+									<i class="fa fa-lg fa-sign-in"></i> Log In
+								</a>
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div id="form" class="form-area">
+													<form action="#" id="appointmentForm" method="post" accept-charset="utf-8">
+														<div class="form-padding">
+															<h4>Login</h4>
+															<!-- patient id -->
+															<div class="form-group">
+																<label>Patient ID 
+																	<i class="text-danger">*</i>
+																</label>
+																<input name="patient_id" autocomplete="off" type="text" class="form-control" id="patient_id" placeholder="Mobile no." value="" required="required">
+																<span></span>
+															</div>
+
+															<div>
+																<button type="submit" id="submit" class="btn thm-btn">Login</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</li>
+								{% endif %}
+								<li>
+									<a href="#">
+										<i class="fa fa-lg fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-lg fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-lg fa-instagram"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Navbar section-->
+		<nav id="mainNav" class="navbar navbar-default  navbar-fixed">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> Menu 
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-brand page-scroll" href="#page-top"></a>
+					<a href="#">
+						<img src="{{ url_for('static', filename='assets_web/images/icons/622049b87c9fdbee35e902c50a3c0237.png') }}" alt="">
+					</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#home">Home 
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#about" class="page-scroll">About</a>
+						</li>
+						<li>
+							<a href="#service" class="page-scroll">Service</a>
+						</li>
+						<li>
+							<a href="#appointment" class="page-scroll">Appointment</a>
+						</li>
+						<li>
+							<a href="#doctor" class="page-scroll">Doctor</a>
+						</li>
+						<li>
+							<a href="#department" class="page-scroll">Department</a>
+						</li>
+						<li>
+							<a href="#blog" class="page-scroll">Blog</a>
+						</li>
+						<li>
+							<a href="#contact" class="page-scroll">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!--/.container -->
+		</nav>
+		<!-- Slider section-->
+		<div id="home">
+			<div id="owl-slider" class="owl-carousel owl-theme">
+				<div class="item" style="background-image: url({{ url_for('static', filename='assets_web/images/slider/10663aacf654d34f0d5191d04222ec7c.jpg') }})">
+					<div class="item-text-inner">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<h4>Welcome to</h4>
+									<h1>
+										<span>Hospital </span>with Difference                           
+									</h1>
+									<p>A family of hospitals for your family.A Passion for Healing.A passion for putting patients first.
+										A Transforming, Healing Presence.Giving children the care they deserve.Good Help to Those in Need.Growing to Meet Your Needs.Healing Hands. Caring Hearts.Health for Life,Healthcare that Cares,Hearts Plus Minds,Hope Lives Here,Improving the Quality of Your Life at Home,In Love with Life.
+									</p>
+									<a href="{{ url_for('static', filename='slider/1/Lorem-Ipsum-is-simply-dummy-text-of-the-printing.html') }}" class="thm-btn">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item" style="background-image: url({{ url_for('static', filename='assets_web/images/slider/207e6d8ee591650c4b5161050a0214a3.jpg') }})">
+					<div class="item-text-inner">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<h4>We Serve with</h4>
+									<h1><span>Love</span> and Care                             
+									</h1>
+									<p>Advanced Medicine, Trusted Care.Because Your Life Matters.Best of Care, Close to Home.Better for you.
+										By Your Side.Caring for the growing needs of our community.Changing Medicine. Changing Lives.
+										Close to Home. Close to Your Heart.
+									</p>
+									<a href="{{ url_for('static', filename='slider/1/Lorem-Ipsum-is-simply-dummy-text-of-the-printing.html') }}" class="thm-btn">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item" style="background-image: url({{ url_for('static', filename='assets_web/images/slider/63d1310594c33dfa63fe2a11f37d040f.jpg') }})">
+					<div class="item-text-inner">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<h1><span>We Care </span> that you Deserve                            
+									</h1>
+									<p>Compassion. Innovation,Trust,Dedication beyond measure.Depend on Us for Life.
+										Enhancing Life,Excelling in Care,Every Day A New Discovery.Exceptional Care. Exceptional People.Exceptional technology. Extraordinary care.Feel better.First. Best. Always.
+									For the journey that is life.</p>
+									<a href="{{ url_for('static', filename='slider/1/Lorem-Ipsum-is-simply-dummy-text-of-the-printing.html') }}" class="thm-btn">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- About section -->
+		<section id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 hidden-xs hidden-sm">
+						<img src="{{ url_for('static', filename='assets_web/images/uploads/72ac3202e5ef96dbd1fb6f32f739b903.jpg') }}" class="img-responsive" alt="">
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="about-des">
+							<h3>ABOUT US</h3>
+							<p>Hospital Healthcare Limited is a leading integrated healthcare delivery service provider in India. The healthcare verticals of the company primarily comprise hospitals, diagnostics and day care specialty facilities. Currently, the company operates its healthcare delivery services in India, Dubai, Mauritius and Sri Lanka with 45 healthcare facilities (including projects under development), approximately 10,000 potential beds and 314 diagnostic centres.&#8230;</p>
+							<a href="details/46/ABOUT-US.html" class="thm-btn">Read More</a>
+							<hr>
+							<h3>OUR VISION & MISSION</h3>
+							<p>
+								"Saving & Enriching Lives",
+								"To be a globally respected healthcare organisation known for Clinical Excellence and Distinctive Patient Care"
+
+							&#8230;</p>
+							<a href="details/47/OUR-VISION-MISSION.html" class="thm-btn">Read More</a>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Service Section -->
+		<section id="service">
+			<div class="container">
+				<div class="row">
+					<!-- Main Title -->
+					<div class="col-md-6 col-md-offset-3">
+						<div class="title-block">
+							<h3>Service We Offer</h3>
+							<p>Our department & special service</p>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="service-content">
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/9db92ae5ed854b080e4b0e37ea0b1377.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Service We Offer</h4>
+								<p>Services that include comprehensive primary & emergency care and other speciality services. </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/43173195f5d046dcfaa6067e4dabb859.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Ophthalmology</h4>
+								<p>Ophthalmology is a branch of medicine and surgery that deals with the anatomy, physiology and diseases of the eyeball and orbit.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/1430987370f7d7958f1aae042782db94.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Medicine</h4>
+								<p>The international situation was the most difficult imaginable, and altogether beyond the powers of the timorous, vacillating and irresolute Medician pope.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/8edd49f1ddd657cb4a143a2325c6bdb3.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Hospital</h4>
+								<p>One of India’s Largest Hospital Network with Over 30 Medical Specialities.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/8f5eb59e3e47177cc6920b3c137ad72d.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Health Service</h4>
+								<p>Health care or healthcare is the maintenance or improvement of health via the prevention, diagnosis, and treatment of disease, illness, injury, and other </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="service-grid">
+							<div class="service-icon">
+								<img src="{{ url_for('static', filename='assets_web/images/icon_image/fcbc0f897d1c0f5603cfe85e58442115.png') }}" alt="" class="hvr-buzz-out"/>
+							</div>
+							<div class="service-text" >
+								<h4>Medical kit</h4>
+								<p>A first aid kit is a collection of supplies and equipment that is used to give medical treatment. There is a wide variation in the contents of first aid kits.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Appointment Section / Choose Us Section -->
+		<section id="appointment" class="choose-form-inner">
+			<div class="container">
+				<div class="row">
+					<!-- Main Title -->
+					<div class="col-md-6 col-md-offset-3">
+						<div class="title-block">
+							<h3>Why Choose Us</h3>
+							<p>One of India’s Largest Hospital Network with Over 30 Medical Specialities</p>
+						</div>
+					</div>
+				</div>
+				<!-- Message & exception -->
+				
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-light alert-dismissible" role="alert" style="background-color: #ffffff;
+				border: 1px solid black;
+				opacity: 1;
+				filter: alpha(opacity=100);">
+				<button type="button" class="close" data-dismiss="alert" aria-lable="close"><span aria-hidden="true">&times;</span></button>
+				{{message}}
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+
+			<!-- Appointment Form -->
+			<div class="col-sm-6 col-md-4">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#appRegister" aria-controls="appRegister" role="tab" data-toggle="tab">Appointment</a>
+					</li>
+					<li role="presentation" class="">
+						<a href="#patientRegister" aria-controls="patientRegister" role="tab" data-toggle="tab">Registration</a>
+					</li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<!-- Login -->
+					<div role="tabpanel" class="tab-pane active" id="appRegister">
+						<div id="form" class="form-area">
+							<form action="appointment" id="appointmentForm" method="post" accept-charset="utf-8">
+								<div class="form-padding">
+									<h4>Appointment Form</h4>
+									<!-- patient id -->
+									<div class="form-group">
+										<label>Name 
+											<i class="text-danger">*</i>
+										</label>
+										<input name="name" autocomplete="off" type="text" class="form-control" id="Name" placeholder="Name" value="">
+										<span></span>
+									</div>
+									<div class="form-group">
+										<label>Department Name 
+											<i class="text-danger">*</i>
+										</label>
+										<select name="department" class="form-control" id="department_id">
+											<option value="" selected="selected">Select Department</option>
+											<option value="Microbiology">Microbiology</option>
+											<option value="Neonatal">Neonatal</option>
+											<option value="Nephrology">Nephrology</option>
+											<option value="Neurology">Neurology</option>
+											<option value="Oncology">Oncology</option>
+											<option value="Orthopaedics">Orthopaedics</option>
+											<option value="Pharmacy">Pharmacy</option>
+											<option value="Radiotherapy">Radiotherapy</option>
+											<option value="Rheumatology">Rheumatology</option>
+											<option value="Gynaecology">Gynaecology</option>
+											<option value="Obstetrics">Obstetrics</option>
+											<option value="General Surgery">General Surgery</option>
+										</select>
+										<span class="doctor_error"></span>
+									</div>
+									<div class="form-group">
+										<label>Doctor Name
+											<i class="text-danger">*</i>
+										</label>
+										<select name="doctor" class="form-control" id="doctor_id">
+											<option value="" selected="selected">Select Doctor</option>
+											{%for d in data%}
+											<option value="{{d.name}}">{{d.name}}</option>
+											{%endfor%}
+										</select>
+										<p class="help-block" id="available_days"></p>
+									</div>
+									<div class="form-group">
+										<label>Date 
+											<i class="text-danger">*</i>
+										</label>
+										<input name="date_" type="text" class="datepicker-avaiable-days form-control" id="date" placeholder="Date" >
+									</div>
+
+									<div class="form-group">
+										<label>Problem </label>
+										<textarea name="problem" class="form-control" placeholder="Problem"  rows="7"></textarea>
+									</div>
+								</div>
+								<div class="form-footer">
+									<div class="checkbox">
+										<label></label>
+									</div>
+									<button type="submit" id="submit" class="btn thm-btn">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- Register -->
+					<div role="tabpanel" class="tab-pane " id="patientRegister">
+						<div id="form" class="form-area">
+							<form action="patient" id="appointmentForm" enctype="multipart/form-data" method="post" accept-charset="utf-8" >
+								<div class="form-padding">
+									<h4></h4>
+									<div class="form-group">
+										<label>Name 
+											<i class="text-danger">*</i>
+										</label>
+										<div class="row">
+											<div class="col-sm-12">
+												<input name="name" type="text" class="form-control" placeholder="Name" required="required">
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="email" >Email 
+											<i class="text-danger">*</i>
+										</label>
+										<div class="row">
+											<div class="col-sm-12">
+												<input name="email" id = "email" type="email" class="form-control" placeholder="yourmail@mail.com" >
+											</div>
+										</div>
+
+									</div>
+									
+									<div class="form-group">
+										<label>Password 
+											<i class="text-danger">*</i>
+										</label>
+										<div class="row">
+											<div class="col-sm-12">
+												<input name="password" id="myPassword" type="password" class="form-control" placeholder="Password" >
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Confirm Password 
+											<i class="text-danger">*</i>
+										</label>
+										<div class="row">
+											<div class="col-sm-12">
+												<input  id="myConfirmPassword" type="password" class="form-control" placeholder="Retype-Password" >
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label>Mobile 
+											<i class="text-danger">*</i>
+										</label>
+										<div class="row">
+											<div class="col-sm-12">	
+												<input name="mobile" type="text" class="form-control" placeholder="Mobile No" required="required">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Date 
+											<i class="text-danger">*</i>
+										</label>
+										<input name="date_" type="text" class="datepicker-avaiable-days form-control" id="date" placeholder="Date" >
+									</div>
+									<div class="form-group">
+										<label>Blood Group </label>
+										<select name="blood_group" class="form-control">
+											<option value="" selected="selected">Select Option</option>
+											<option value="A+">A+</option>
+											<option value="A-">A-</option>
+											<option value="B+">B+</option>
+											<option value="B-">B-</option>
+											<option value="O+">O+</option>
+											<option value="O-">O-</option>
+											<option value="AB+">AB+</option>
+											<option value="AB-">AB-</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<div class="form-check">
+											<label>Sex 
+												<i class="text-danger">*</i>
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="sex" value="Male">Male                                    
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="sex" value="Female">Female                                    
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Address 
+											<i class="text-danger">*</i>
+										</label>
+										<textarea name="address" class="form-control" placeholder="Address"  rows="7"></textarea>
+									</div>
+								</div>
+								<div class="form-footer">
+									<div class="checkbox">
+										<label></label>
+									</div>
+									<button type="submit" id="submit" class="btn thm-btn">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Section Image -->
+			<div class="col-md-4 hidden-sm">
+				<div class="doctor_img">
+					<img src="{{ url_for('static', filename='assets_web/images/uploads/4f682668d769aa3f4ce28b2a65506000.png') }}" class="img-responsive" alt="">
+				</div>
+			</div>
+			<!-- Why Choose Us -->
+			<div class="col-sm-6 col-md-4">
+				<div class="choose">
+					<div class="choose-icon">
+						<img src="{{ url_for('static', filename='assets_web/images/icon_image/25557669cb71d1cd5c6a5e0bfa2d0f03.png') }}" alt=""/>
+					</div>
+					<div class="choose-content">
+						<h4>Medical Service</h4>
+						<p> Corporate organizations rely on us for a range of medical services including occupational health and wellness of their employees.</p>
+					</div>
+				</div>
+				<div class="choose">
+					<div class="choose-icon">
+						<img src="{{ url_for('static', filename='assets_web/images/icon_image/122b61a7a02df7100c79f3631295a751.png') }}" alt=""/>
+					</div>
+					<div class="choose-content">
+						<h4>Health Service</h4>
+						<p> Health service delivery systems that are safe, accessible, high quality, people-centred, and integrated are critical for moving towards universal health coverage. </p>
+					</div>
+				</div>
+				<div class="choose">
+					<div class="choose-icon">
+						<img src="{{ url_for('static', filename='assets_web/images/icon_image/c506ae2df3adc26d9c752249e77c7c05.png') }}" alt=""/>
+					</div>
+					<div class="choose-content">
+						<h4>Support Service</h4>
+						<p>  Possibility for Support Services in Hospital Management. Within a hospital in different departments.</p>
+					</div>
+				</div>
+				<div class="choose">
+					<div class="choose-icon">
+						<img src="{{ url_for('static', filename='assets_web/images/icon_image/ffa3b3280b4a0787ab0d925da71975ae.png') }}" alt=""/>
+					</div>
+					<div class="choose-content">
+						<h4>Medicine Support</h4>
+						<p> A teaching hospital combines assistance to people with teaching to medical students and nurses. The medical facility smaller than a hospital is generally called a clinic.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script data-cfasync="false" src="{{ url_for('static', filename='cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+<script src="../ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<!-- Doctor Section -->
+<section id="doctor" class="doctor-inner">
+	<div class="container">
+		<div class="row">
+			<!-- Main Title -->
+			<div class="col-md-6 col-md-offset-3">
+				<div class="title-block">
+					<h3>OUR DOCTOR</h3>
+					<p>Our department & special service</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="owl_wrapper">
+				<div id="owl-doctor" class="owl-carousel">
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/35732cf7f407ccee58c5fa5ad3c81c71.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Nishant Choudhary</h4>
+								<h5>Microbiology</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/35244833c2e9f66096117eff89ac7010.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Shubhi Gupta</h4>
+								<h5>Microbiology</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/ea862cf387585520079c187f9fbe6b7d.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Vishvajeet Singh</h4>
+								<h5>Neonatal</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/bb280bddc0b3d0a776aab5a53d64516b.jpg') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Nikki</h4>
+								<h5>Neurology</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/75613b04165f9e285e2346f7c84c3aed.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Nishant Choudhary </h4>
+								<h5>Pharmacy</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/e4e3dacd7a9b17505bfcec4364461c79.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. Vishvajeet Singh</h4>
+								<h5>Microbiology</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/ea60c46563bc616914857d619d357837.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr.Shiv Sharma</h4>
+								<h5>Gynaecology</h5>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="single-item">
+							<div class="doctor-img">
+								<a class="primary-img" href="#">
+									<img src="{{ url_for('static', filename='assets/images/doctor/9559bb5b1264e72a8a99d70201429458.png') }}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="doctor-name">
+								<h4>Dr. yashsvi</h4>
+								<h5>Neurology</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Department Section -->
+<section id="department">
+	<div class="container">
+		<div class="row">
+			<!-- Main Title -->
+			<div class="col-md-6 col-md-offset-3">
+				<div class="title-block">
+					<h3></h3>
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 bhoechie-tab-container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 bhoechie-tab-menu">
+						<div class="list-group">
+							<a href="#" class="list-group-item text-center active">
+								<h4>General Surgery</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Gynaecology</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Microbiology</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Neonatal</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Nephrology</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Neurology</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Obstetrics</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Oncology</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Orthopaedics</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Pharmacy</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Radiotherapy</h4>
+							</a>
+							<a href="#" class="list-group-item text-center ">
+								<h4>Rheumatology</h4>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 bhoechie-tab">
+						<div class="bhoechie-tab-content  active">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>General Surgery</h2>
+										<p>General surgery is a surgical specialty that focuses on abdominal contents including esophagus, stomach, small bowel, colon, liver, pancreas, gallbladder, appendix and bile ducts, and often the thyroid gland (depending on local referral patterns).</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Gynaecology</h2>
+										<p>Gynaecology or gynecology (see spelling differences) is the medical practice dealing with the ... the other women. In 1855 Sims went on to found the Woman's Hospital in New York, this was the first hospital specifically for female disorders.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Microbiology</h2>
+										<p>Hospital Microbiologists. Hospital microbiologists, also known as medical or clinical laboratory technologists or medical lab scientists, examine specimens of bodily fluids for microorganisms, as well as analyze fluid samples to determine how patients are reacting to treatments.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Neonatal</h2>
+										<p>Newborn babies who need intensive medical attention are often admitted into a special area of the hospital called the Neonatal Intensive Care Unit (NICU). The NICU combines advanced technology and trained health care professionals to provide specialized care for the tiniest patients.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Nephrology</h2>
+										<p>A nephrologist is a physician who specializes in the care and treatment of kidney disease. ... Nephrologists may further sub-specialise in dialysis, kidney transplantation, chronic kidney disease, cancer-related kidney diseases (Onconephrology), procedural nephrology or other non-nephrology areas as described above.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Neurology</h2>
+										<p>The neurologist treats disorders that affect the brain, spinal cord, and nerves, such as: Cerebrovascular disease, such as stroke. Demyelinating diseases of the central nervous system, such as multiple sclerosis. ... Infections of the brain and peripheral nervous system.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Obstetrics</h2>
+										<p>An obstetrician is a doctor who specializes in pregnancy, childbirth, and a woman's reproductive system. Although other doctors can deliver babies, many women see an obstetrician, also called an OB/GYN.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Oncology</h2>
+										<p>Oncology is the study of cancer. An oncologist is a doctor who treats cancer and provides medical care for a person diagnosed with cancer. The field of oncology has three major areas: medical, surgical, and radiation.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Orthopaedics</h2>
+										<p>Orthopaedics is the medical specialty that focuses on injuries and diseases of your body's musculoskeletal system. This complex system, which includes your bones, joints, ligaments, tendons, muscles, and nerves, allows you to move, work, and be active. ... And anybody can break a bone.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Pharmacy</h2>
+										<p>Pharmacy is the science and technique of preparing and dispensing drugs. It is a health profession that links health sciences with chemical sciences and aims to ensure the safe and effective use of pharmaceutical drugs.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Radiotherapy</h2>
+										<p>Radiotherapy uses high-energy rays, usually x-rays and similar rays (such as electrons), to treat disease. It destroys cancer cells in the area that's treated. ... Radiotherapy is carefully planned so that it avoids as much healthy tissue as possible.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bhoechie-tab-content  ">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="disease-des">
+										<h2>Rheumatology</h2>
+										<p>Rheumatologists treat arthritis, autoimmune diseases, pain disorders affecting joints, and osteoporosis. There are more than 200 types of these diseases, including rheumatoid arthritis, osteoarthritis, gout, lupus, back pain, osteoporosis, and tendinitis.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Blog Section -->
+<!-- Testimonial Section -->
+<section id="testimonial" class="testimonial-inner">
+	<div class="container">
+		<div class="row">
+			<!-- Image -->
+			<div class="col-md-5 col-sm-8 hidden-xs hidden-sm">
+				<div class="costom-img">
+					<img src="{{ url_for('static', filename='assets_web/images/uploads/fe61f4076e308b853dc15b5fd86978f2.png') }}" alt="" class="img-responsive center-block">
+				</div>
+			</div>
+
+			<!-- Customer Comments -->
+			<div class="col-xs-12 col-md-7 col-sm-12">
+				<div class="comment-wrapper">
+					<div class="comment-title"><h1>Customer Comments</h1></div>
+					<div id="owl-testimonial" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+						<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 2532px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(-633px, 0px, 0px); transform-origin: 949.5px center 0px; perspective-origin: 949.5px center;"><div class="owl-item" style="width: 633px;"><div class="item">
+							<div class="article">
+								<p>I highly recommend this application for hospital management</p>
+								<div class="customers"> - Tanzil Ahmad</div>
+							</div>
+						</div></div><div class="owl-item" style="width: 633px;"><div class="item">
+							<div class="article">
+								<p>Hello World!</p>
+								<div class="customers"> - John Doe</div>
+							</div>
+						</div></div></div></div>
+
+
+						<div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div></div></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section -->
+	<section id="blog" class="blog-inner">
+		<div class="container">
+			<div class="row">
+				<!-- Main Title -->
+				<div class="col-md-6 col-md-offset-3">
+					<div class="title-block">
+						<h3>LATEST NEWS</h3>
+						<p>Our department & special service</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-4 col-sm-6">
+					<div class="blog-post">
+						<div class="frame">
+							<a href="{{ url_for('static', filename='details/52/Lates-blog-post-with-image.html') }}" class="zoom">
+								<i class="fa fa-link"></i>
+							</a>
+							<img src="{{ url_for('static', filename='assets_web/images/icon_image/a09170abd1aa80f9888488c779530340.jpg') }}" class="img-responsive" alt="img">
+						</div>
+						<div class="content-box">
+							<div class="date-box">
+								<div class="inner">
+									<div class="date">
+										<b>05</b> Sep
+									</div>
+									<div class="comment">
+										<i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i> 20
+									</div>
+								</div>
+							</div>
+							<div class="post-inner">
+								<h3>
+									<a href="{{ url_for('static', filename='details/52/Lates-blog-post-with-image.html') }}">Research</a>
+								</h3>
+								<p>It is a long established fact that a reader will be distracted by the readable content of a page when&#8230;</p>
+								<a href="{{ url_for('static', filename='details/52/Lates-blog-post-with-image.html') }}" class="thm-btn">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-4 col-sm-6">
+					<div class="blog-post">
+						<div class="frame">
+							<a href="{{ url_for('static', filename='details/53/It-is-a-long-established-fact-that-a-reader.html') }}" class="zoom">
+								<i class="fa fa-link"></i>
+							</a>
+							<img src="{{ url_for('static', filename='assets_web/images/icon_image/691a0ff269fba263f55ff7bd075a28a9.jpg') }}" class="img-responsive" alt="img">
+						</div>
+						<div class="content-box">
+							<div class="date-box">
+								<div class="inner">
+									<div class="date">
+										<b>15</b> Sep
+									</div>
+									<div class="comment">
+										<i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i> 10
+									</div>
+								</div>
+							</div>
+							<div class="post-inner">
+								<h3>
+									<a href="{{ url_for('static', filename='details/53/It-is-a-long-established-fact-that-a-reader.html') }}">New Innovations</a>
+								</h3>
+								<p>It is a long established fact that a reader will be distracted by the readable content of a page when&#8230;</p>
+								<a href="{{ url_for('static', filename='details/53/It-is-a-long-established-fact-that-a-reader.html') }}" class="thm-btn">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-4 col-sm-6">
+					<div class="blog-post">
+						<div class="frame">
+							<a href="{{ url_for('static', filename='details/54/when-an-unknown-printer-took-a-galley.html') }}" class="zoom">
+								<i class="fa fa-link"></i>
+							</a>
+							<img src="{{ url_for('static', filename='assets_web/images/icon_image/7a31a6cac932e2e4db50bebd691dbdad.jpg') }}" class="img-responsive" alt="img">
+						</div>
+						<div class="content-box">
+							<div class="date-box">
+								<div class="inner">
+									<div class="date">
+										<b>01</b> Oct
+									</div>
+									<div class="comment">
+										<i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i> 1
+									</div>
+								</div>
+							</div>
+							<div class="post-inner">
+								<h3>
+									<a href="{{ url_for('static', filename='details/54/when-an-unknown-printer-took-a-galley.html') }}">Make Life Possible </a>
+								</h3>
+								<p>It is a long established fact that a reader will be distracted by the readable content of a page when&#8230;</p>
+								<a href="{{ url_for('static', filename='details/54/when-an-unknown-printer-took-a-galley.html') }}" class="thm-btn">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer Section -->
+	<footer id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="output hide alert"></div>
+				</div>
+				<div class="col-sm-9">
+					<div class="appointment-link">
+						<div class="ap-inner">
+							<div class="ap-icon">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</div>
+							<div class="ap-text">
+								<h3>Need a Doctor for Check-up?</h3>
+								<h2>JUST MAKE AN APPOINTMENT & YOU'RE DONE ! </h2>
+							</div>
+						</div>
+						<div class="ap-btn">
+							<a href="index.html#appointment" class="thm-btn page-scroll">Get an appointment</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<form action="message" method="POST" accept-charset="utf-8">
+						<div class="form-group">
+							<input type="name" name="name" class="form-control" placeholder="Full Name">
+						</div>
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Email Address">
+						</div>
+						<div class="form-group">
+							<input type="phone" name="phone" class="form-control" placeholder="Phone No">
+						</div>
+						<div class="form-group">
+							<textarea name="enquiry" class="form-control" placeholder="Enquiry"></textarea>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="thm-btn page-scroll pull-right">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Address -->
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-box address-inner">
+						<img src="{{ url_for('static', filename='assets_web/images/icons/622049b87c9fdbee35e902c50a3c0237.png') }}" alt="">
+						<p>There are many variations of passages of Hospital's are available, but the majority have suffered alteration&#8230;</p>
+						<div class="address">
+							<i class="flaticon-placeholder"></i>
+							<p>123/A, Street, State-12345, Demo</p>
+						</div>
+						<div class="address">
+							<i class="flaticon-customer-service"></i>
+							<p>0123456788</p>
+						</div>
+						<div class="address">
+							<i class="flaticon-mail"></i>
+							<p>
+								<a href="#">
+									<span class="__cf_email__" >demo@hospital.com</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- Latest News -->
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-box">
+						<h4 class="footer-title">Latest News</h4>
+						<div class="post-widget">
+							<ul>
+								<li>
+									<a href="{{ url_for('static', filename='details/52/Lates-blog-post-with-image.html') }}">
+										<img src="{{ url_for('static', filename='assets_web/images/icon_image/a09170abd1aa80f9888488c779530340.jpg') }}"  alt="" >
+									</a>
+									<a href="{{ url_for('static', filename='details/52/Lates-blog-post-with-image.html') }}">Research</a>
+									<span class="post-date">05, Sep 2018</span>
+								</li>
+								<li>
+									<a href="{{ url_for('static', filename='details/53/It-is-a-long-established-fact-that-a-reader.html') }}">
+										<img src="{{ url_for('static', filename='assets_web/images/icon_image/691a0ff269fba263f55ff7bd075a28a9.jpg') }}"  alt="" >
+									</a>
+									<a href="{{ url_for('static', filename='details/53/It-is-a-long-established-fact-that-a-reader.html') }}">Innovation</a>
+									<span class="post-date">15, Sep 2018</span>
+								</li>
+								<li>
+									<a href="{{ url_for('static', filename='details/54/when-an-unknown-printer-took-a-galley.html') }}">
+										<img src="{{ url_for('static', filename='assets_web/images/icon_image/7a31a6cac932e2e4db50bebd691dbdad.jpg') }}"  alt="" >
+									</a>
+									<a href="{{ url_for('static', filename='details/54/when-an-unknown-printer-took-a-galley.html') }}"> Make Life Possible</a>
+									<span class="post-date">07, Oct 2018</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Latest Tweet -->
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-box">
+						<h4 class="footer-title">Latest Tweet</h4>
+						<div class="latest-tweet">
+							<a class="twitter-timeline" data-lang="en" data-dnt="true" data-link-color="#207FDD" href="https://twitter.com/taylorswift13">Tweets by PM_modi</a>
+						</div>
+					</div>
+				</div>
+				<!-- Map -->
+				<div class="col-md-3 col-sm-6">
+					<div class="map">
+						<h4 class="footer-title">Google Map</h4>
+						<div id="map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29215.021939977993!2d90.40923229999999!3d23.75173875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sbn!2sbd!4v1477987829881" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<p>
+					<p>&copy; 2018&nbsp;
+						<a title="BdTask" href="#" target="_blank">bdtask</a>. All rights reserved
+					</p>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='assets_web/js/jquery.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='assets_web/js/jquery.password-validation.js') }}"></script>
+
+	<script type="text/javascript">
+		var EmailDomainSuggester = {
+
+			domains: ["gmail.com","yahoo.com", "google.com", "hotmail.com", "me.com", "orkut.com"],
+
+			bindTo:$('#email'),
+
+			init: function() {
+				this.addElements();
+				this.bindEvents();
+			},
+
+			addElements: function() {
+	    // Create empty datalist
+	    this.datalist = $("<datalist />", {
+	    	id: 'email-options'
+	    }).insertAfter(this.bindTo);
+	    // Corelate to input
+	    this.bindTo.attr("list", "email-options");
+	},
+
+	bindEvents: function() {
+		this.bindTo.on("keyup", this.testValue);
+	},
+
+	testValue: function(event) {
+		var el = $(this),
+		value = el.val();
+
+	    // email has @
+	    // remove != -1 to open earlier
+	    if (value.indexOf("@") != -1) {
+	    	value = value.split("@")[0];
+	    	EmailDomainSuggester.addDatalist(value); 
+	    } else {
+	      // empty list
+	      EmailDomainSuggester.datalist.empty();
+	  }
+
+	},
+
+	addDatalist: function(value) {
+		var i, newOptionsString = "";
+		for (i = 0; i < this.domains.length; i++) {
+			newOptionsString += 
+			"<option value='" + 
+			value + 
+			"@" +
+			this.domains[i] +
+			"'>";
+		}
+
+	    // add new ones
+	    this.datalist.html(newOptionsString);
+	}
+
+}
+
+EmailDomainSuggester.init();
+
+</script>
+
+<script type="text/javascript">
+	$("#myPassword").passwordValidation({"confirmField": "#myConfirmPassword"}, function(element, valid, match, failedCases) {
+
+  $("#errors").html("<pre>" + failedCases.join("\n") + "</pre>");
+
+   if(valid) $(element).css("border","1px solid #207fdd");
+
+   if(!valid) $(element).css("border","1px solid red");
+
+   if(valid && match) $("#myConfirmPassword").css("border","1px solid #207fdd");
+
+   if(!valid || !match) $("#myConfirmPassword").css("border","1px solid red");
+
+});
+
+</script>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVtjo9eO4klWhYbHwL9jObfuke4rxSWWc"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ url_for('static', filename='assets_web/js/bootstrap.min.js') }}"></script>
+<!-- owl carousel js -->
+<script src="{{ url_for('static', filename='assets_web/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
+<!-- Plugin JavaScript -->
+<script src="{{ url_for('static', filename='assets_web/js/jquery.easing.min.js') }}" type="text/javascript"></script>
+<!-- Jquery Ui -->
+<script src="{{ url_for('static', filename='assets_web/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+<!-- Custom Js -->
+<script src="{{ url_for('static', filename='assets_web/js/custom.js') }}" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{% extends  'layout.html' %}
+<!-- page content -->
+{%block content%}
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Appointment List</h3>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+
+      <div class="panel-heading no-print">
+                <div class="btn-group"> 
+                    <a class="btn btn-success" href="{{ url_for('add_appointment') }}"> <i class="fa fa-plus"></i>  Add Apointment </a>  
+                </div>
+            </div> 
+
+
+
+      <div class="panel-body">
+      <table class="table table-striped table-bordered table-hover" id="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Problem</th>
+
+            
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in data %}
+          <tr>
+            <td>{{d['name']}}</td>
+            <td>{{d['department']}}</td>
+            <td>{{d['doctor']}}</td>
+            <td>{{d['date_']}}</td>
+            <td>{{d['problem']}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+{%endblock%}

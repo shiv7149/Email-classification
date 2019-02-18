@@ -1,0 +1,98 @@
+{% extends  'layout.html' %}
+<!-- page content -->
+{%block content%}
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Add Appointment</h3>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+
+          <div class="panel-heading no-print">
+            <div class="btn-group"> 
+              <a class="btn btn-success" href="{{ url_for('app_list') }}"> <i class="fa fa-list"></i>Appointment List</a>  
+            </div>
+          </div> 
+          <br><br>
+          <form id="demo-form2" action="appointment" method="POST" class="form-horizontal form-label-left">
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" name="name" placeholder="Name" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Department Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <select name="department" class="form-control">
+                  <option value="" selected="selected">Select Department</option>
+                  <option value="Microbiology">Microbiology</option>
+                  <option value="Neonatal">Neonatal</option>
+                  <option value="Nephrology">Nephrology</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Oncology">Oncology</option>
+                  <option value="Orthopaedics">Orthopaedics</option>
+                  <option value="Pharmacy">Pharmacy</option>
+                  <option value="Radiotherapy">Radiotherapy</option>
+                  <option value="Rheumatology">Rheumatology</option>
+                  <option value="Gynaecology">Gynaecology</option>
+                  <option value="Obstetrics">Obstetrics</option>
+                  <option value="General Surgery">General Surgery</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Doctor Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <select name="doctor" class="form-control">
+                  <option value="" selected="selected">Select Doctor</option>
+                  {%for d in data%}
+                        <option value="{{d.name}}">{{d.name}}</option>
+                        {%endfor%}
+                  
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+               <div  class="input-group date" id="myDatepicker2">
+                <input type="text" name="date_" placeholder="Date" class="form-control" >
+                <span class="input-group-addon" style="">
+                 <span class="glyphicon glyphicon-calendar"></span>
+               </span>
+             </div>
+           </div>
+         </div>
+         <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Problem <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <textarea name="problem" class="form-control" placeholder="Problem" maxlength="140" rows="7"></textarea>
+          </div>
+        </div>
+
+        <div class="ln_solid"></div>
+        <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button class="btn btn-primary" type="reset">Reset</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+{%endblock%}
+

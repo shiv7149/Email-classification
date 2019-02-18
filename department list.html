@@ -1,0 +1,50 @@
+{% extends  'layout.html' %}
+<!-- page content -->
+{%block content%}
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Department List</h3>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+
+      <div class="panel-heading no-print">
+                <div class="btn-group"> 
+                    <a class="btn btn-success" href="{{ url_for('add_department') }}"> <i class="fa fa-plus"></i>  Add Department </a>  
+                </div>
+            </div> 
+
+
+
+      <div class="panel-body">
+      <table class="table table-striped table-bordered table-hover" id="list">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Department</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in data %}
+          <tr>
+            <td>{{d['ID']}}</td>
+            <td>{{d['department']}}</td>
+            <td>{{d['description']}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+{%endblock%}
